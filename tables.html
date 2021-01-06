@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+​
+</head>
+​
+<body>
+​
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Hot Restaurant</h1>
+            <h3>Reservation List</h3>
+            <hr>
+            <a href="reserve.html"><button class="btn btn-danger btn-lg"><span></span>Make Reservation</button></a>
+            <a href="home.html"><button class="btn btn-light btn-lg"><span></span><span
+                        class="fa fa-home"></span></button></a>
+        </div>
+​
+        <div class="card">
+            <div class="card-header">
+                <h3><strong>Reservations</strong></h3>
+                <div class="card-body" id="reservationEl">
+                    <ol id="" class="list-group">
+                        <!-- <li class="list-group-item">
+                        </li> -->
+                </div>
+            </div>
+​
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>Waiting List</strong></h3>
+                    <div class="card-body" id="waitingEl">
+                        <ol id="" class="list-group">
+                            <!-- <li class="list-group-item">
+                        </li> -->
+​
+                    </div>
+                </div>
+​
+</html>
+​
+</html>
+​
+​
+<script>
+    $.get("/api/tables/", function (data) {
+        console.log(data);
+        if (data) {
+            $("#reservationEl").text(data.reservation);
+            $("#waitingEl").text(data.waitlist)
+        } else {
+        }
+    });
+​
+​
+    // {
+    //     "waitlist":: [{}, {}, {}]
+    //     "reservations": [{}, {}, {}, {}]
+    // }
+</script>
